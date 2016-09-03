@@ -8,23 +8,17 @@ export default class Notes extends React.Component {
   constructor(props) {
     super(props);
     this.state = this._getInitialState();
-    this.onDelete = this.onDelete.bind(this);
   }
 
   _getInitialState() {
     return {};
   }
 
-  onDelete(note) {
-    var notes = _.remove(this.state.notes, note);
-    this.setState({ notes: this.state.notes });
-  }
-
   render() {
     var notes = _.map(this.props.notes, (item, idx) => {
       return (
         <div key = { idx } className="note__item">
-          <div onClick={() => this.onDelete(item) } className="notes__delete-icon">
+          <div onClick={() => this.props.onDelete(item) } className="notes__delete-icon">
             <span className="glyphicon glyphicon-remove"></span>
           </div>
           <div className="note__title">{item.title}

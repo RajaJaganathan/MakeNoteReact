@@ -11,6 +11,8 @@ class MakeNote extends React.Component {
   constructor(props) {
     super(props);
     this.state = this._getInitialState();
+    this.onAddNote = this.onAddNote.bind(this);
+    this.onDeleteNote = this.onDeleteNote.bind(this);
   }
 
   _getInitialState() {
@@ -32,12 +34,23 @@ class MakeNote extends React.Component {
     };
   }
 
+  onDeleteNote(note) {
+    var notes = _.remove(this.state.notes, note);
+    this.setState({ notes: this.state.notes });
+  }
+
+  onAddNote(note) {
+    var newNote = Object.assign({}, note);
+    this.state.notes.push(newNote);
+    this.setState({ notes: this.state.notes });
+  }
+
   render() {
     return <div className="page-wrapper">
       <Header/>
       <div className="container">
-        <AddNote/>
-        <Notes notes={this.state.notes}/>
+        <AddNote onAddNote={this.onAddNote}/>
+        <Notes notes={this.state.notes} onDelete={this.onDeleteNote}/>
       </div>
     </div>;
   }
