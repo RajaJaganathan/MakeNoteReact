@@ -14,8 +14,9 @@ export default class Header extends React.Component {
       </div>
       <div className="collapse navbar-collapse navbar-ex1-collapse">
         <ul className="nav navbar-nav">
-          <li className="active"><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <li className="active"><a href="#">Notes</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
         </ul>
         <form className="navbar-form navbar-left" role="search">
           <div className="form-group">
@@ -23,15 +24,12 @@ export default class Header extends React.Component {
           </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
-        <ul className="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
+        <ul className="nav navbar-nav navbar-right">          
           <li className="dropdown">
-            <a href="#" className="dropdown-toggle" data-toggle="dropdown">Dropdown <b className="caret"></b></a>
+            <a href="#" className="dropdown-toggle" data-toggle="dropdown">Sort By <b className="caret"></b></a>
             <ul className="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li><a href="#">Separated link</a></li>
+              <li><a href="#">Title</a></li>
+              <li><a href="#">Dates</a></li>             
             </ul>
           </li>
         </ul>
