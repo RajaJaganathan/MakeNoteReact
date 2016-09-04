@@ -1,5 +1,6 @@
 import React from 'react';
 
+import moment from 'moment';
 export default class Note extends React.Component {
   constructor(props) {
     super(props);
@@ -11,11 +12,14 @@ export default class Note extends React.Component {
   render() {
     return (
       <div className="note__item">
-        <div className="note__last-saved">{this.props.note.savedDate}</div>
-        <div className="note__title">{this.props.note.title}</div>
-        <div className="note__desc">{this.props.note.desc}</div>
         <div className="notes__delete-icon">
-          <span class="glyphicon glyphicon-remove">X</span>
+          <span onClick={() => this.props.onDelete(this.props.item) } className="glyphicon glyphicon-remove"></span>
+        </div>
+        <div className="note__title">{this.props.item.title}
+          <div className="note__last-saved col-xs-6 pull-right text-right">{moment(this.props.item.savedDate).format('LL') }</div>
+        </div>
+        <div className="note__body">
+          <div className="note__desc">{this.props.item.desc}</div>
         </div>
       </div>
     );
