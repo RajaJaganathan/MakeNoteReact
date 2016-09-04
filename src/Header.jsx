@@ -12,6 +12,10 @@ export default class Header extends React.Component {
     this.props.onFilterNote(e.target.value);
   }
 
+  onSortBy(e, field) {
+    this.props.onSortBy(field);
+  }
+
   render() {
     return (<nav className="navbar navbar-default" role="navigation">
       <div className="navbar-header">
@@ -39,8 +43,8 @@ export default class Header extends React.Component {
           <li className="dropdown">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown">Sort By <b className="caret"></b></a>
             <ul className="dropdown-menu">
-              <li><a href="#">Title</a></li>
-              <li><a href="#">Dates</a></li>
+              <li><a onClick={(e) => this.onSortBy(e, 'title') } href="#">Title</a></li>
+              <li><a onClick={(e) => this.onSortBy(e, 'savedDate') } href="#">Dates</a></li>
             </ul>
           </li>
         </ul>

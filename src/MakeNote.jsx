@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-
+window.jQuery = $;
+require('bootstrap');
 // import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 import Header from './Header.jsx';
@@ -15,6 +16,7 @@ class MakeNote extends React.Component {
     this.onAddNote = this.onAddNote.bind(this);
     this.onDeleteNote = this.onDeleteNote.bind(this);
     this.onFilterNote = this.onFilterNote.bind(this);
+    this.onSortBy = this.onSortBy.bind(this);
     this.originalNotes = [];
   }
 
@@ -48,7 +50,7 @@ class MakeNote extends React.Component {
   }
 
   onFilterNote(title) {
-    console.log("this.originalNotes", this.originalNotes);
+
     var result;
 
     if (!title) {
@@ -62,9 +64,14 @@ class MakeNote extends React.Component {
     this.setState({ notes: result });
   }
 
+  onSortBy(field) {
+    var result = _.orderBy(this.state.notes, field);
+    this.setState({ notes: result });
+  }
+
   render() {
     return <div className="page-wrapper">
-      <Header onFilterNote={this.onFilterNote}/>
+      <Header onFilterNote={this.onFilterNote} onSortBy={this.onSortBy}/>
       <div className="container">
         <AddNote onAddNote={this.onAddNote}/>
         <Notes notes={this.state.notes} onDelete={this.onDeleteNote}/>
