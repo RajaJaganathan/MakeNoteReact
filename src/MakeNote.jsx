@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 
 // import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
@@ -17,21 +18,18 @@ class MakeNote extends React.Component {
 
   _getInitialState() {
     return {
-      notes: [{
-        title: 'Personal Todo',
-        desc: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit esse quo facere non illo commodi, dicta ab deserunt aperiam dignissimos, sunt distinctio consequatur rerum libero reiciendis hic sit ipsa asperiores.',
-        savedDate: new Date()
-      }, {
-          title: 'Tech Todo',
-          desc: 'Learning React JS',
-          savedDate: new Date('02/03/2016')
-        },
-        {
-          title: 'Tour Checklist',
-          desc: 'Shoes, Bag, passport, kindle etc...,',
-          savedDate: new Date('02/03/2016')
-        }]
+      notes: []
     };
+  }
+
+  componentDidMount() {
+    this.fetchNoteRequest = $.ajax('notes.json').then((res) => {
+      this.setState({ notes: res });
+    });
+  }
+
+  componentWillUnMount() {
+    this.fetchNoteRequest.abort();
   }
 
   onDeleteNote(note) {

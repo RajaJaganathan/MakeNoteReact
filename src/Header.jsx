@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class Header extends React.Component {
   render() {
-    return <nav className="navbar navbar-default" role="navigation">
+    return (<nav className="navbar navbar-default" role="navigation">
       <div className="navbar-header">
         <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
           <span className="sr-only">Toggle navigation</span>
@@ -20,7 +20,7 @@ export default class Header extends React.Component {
         </ul>
         <form className="navbar-form navbar-left" role="search">
           <div className="form-group">
-            <input type="text" className="form-control" placeholder="Search"/>
+            <input type="text" className="form-control" placeholder="Search by title"/>
           </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
@@ -34,6 +34,6 @@ export default class Header extends React.Component {
           </li>
         </ul>
       </div>
-    </nav>    
+    </nav>)  
   }
 }
