@@ -1,9 +1,6 @@
+import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
-window.jQuery = $;
-require('bootstrap');
-// import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
 
 import Header from './Header.jsx';
 import Notes from './Notes.jsx';
@@ -70,13 +67,13 @@ class MakeNote extends React.Component {
   }
 
   render() {
-    return <div className="page-wrapper">
+    return (<div className="page-wrapper">
       <Header onFilterNote={this.onFilterNote} onSortBy={this.onSortBy}/>
       <div className="container">
         <AddNote onAddNote={this.onAddNote}/>
         <Notes notes={this.state.notes} onDelete={this.onDeleteNote}/>
       </div>
-    </div>;
+    </div>)
   }
 }
 
