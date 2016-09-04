@@ -1,6 +1,17 @@
 import React from 'react';
 
 export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { filterText: '' };
+    this.onFilterNote = this.onFilterNote.bind(this);
+  }
+
+  onFilterNote(e) {
+    this.setState({ filterText: e.target.value });
+    this.props.onFilterNote(e.target.value);
+  }
+
   render() {
     return (<nav className="navbar navbar-default" role="navigation">
       <div className="navbar-header">
@@ -20,20 +31,20 @@ export default class Header extends React.Component {
         </ul>
         <form className="navbar-form navbar-left" role="search">
           <div className="form-group">
-            <input type="text" className="form-control" placeholder="Search by title"/>
+            <input type="text" value={this.state.filterText} onChange={this.onFilterNote } className="form-control" placeholder="Search by title"/>
           </div>
           <button type="submit" className="btn btn-default">Submit</button>
         </form>
-        <ul className="nav navbar-nav navbar-right">          
+        <ul className="nav navbar-nav navbar-right">
           <li className="dropdown">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown">Sort By <b className="caret"></b></a>
             <ul className="dropdown-menu">
               <li><a href="#">Title</a></li>
-              <li><a href="#">Dates</a></li>             
+              <li><a href="#">Dates</a></li>
             </ul>
           </li>
         </ul>
       </div>
-    </nav>)  
+    </nav>)
   }
 }
