@@ -1,49 +1,24 @@
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Route, Router, IndexRoute, browserHistory } from 'react-router';
 
 import Header from './Header.jsx';
 import Notes from './Notes.jsx';
 import AddNote from './AddNote.jsx';
 
-class MakeNote extends React.Component {
+import NotesContainer from './NotesContainer.jsx';
+import Contact from './Contact.jsx';
+import Aboutus from './Aboutus.jsx';
+
+// import routes from './routes'; 
+
+class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this._getInitialState();
-    this.onAddNote = this.onAddNote.bind(this);
-    this.onDeleteNote = this.onDeleteNote.bind(this);
     this.onFilterNote = this.onFilterNote.bind(this);
     this.onSortBy = this.onSortBy.bind(this);
     this.originalNotes = [];
-  }
-
-  _getInitialState() {
-    return {
-      notes: []
-    };
-  }
-
-  componentDidMount() {
-    this.fetchNoteRequest = $.ajax('notes.json').then((res) => {
-      this.setState({ notes: res });
-      this.originalNotes = _.clone(res);
-    });
-  }
-
-  componentWillUnmount() {
-    this.fetchNoteRequest.abort();
-  }
-
-  onDeleteNote(note) {
-    var notes = _.remove(this.state.notes, note);
-    this.setState({ notes: this.state.notes });
-  }
-
-  onAddNote(note) {
-    var newNote = Object.assign({}, note);
-    this.state.notes.push(newNote);
-    this.originalNotes = _.clone(this.state.notes);
-    this.setState({ notes: this.state.notes });
   }
 
   onFilterNote(title) {
@@ -70,11 +45,22 @@ class MakeNote extends React.Component {
     return (<div className="page-wrapper">
       <Header onFilterNote={this.onFilterNote} onSortBy={this.onSortBy}/>
       <div className="container">
-        <AddNote onAddNote={this.onAddNote}/>
-        <Notes notes={this.state.notes} onDelete={this.onDeleteNote}/>
+        {this.props.children}
       </div>
-    </div>)
+    </div>);
   }
 }
 
-ReactDOM.render(<MakeNote/>, document.getElementById('root'));
+
+
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path="/" component={App} >
+      <IndexRoute component={NotesContainer}/>
+      <Route path="contact" component={Contact} />
+      <Route path="aboutus" component={Aboutus} />
+    </Route>
+  </Router>
+), document.getElementById('root'));
+
+export default App;

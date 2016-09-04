@@ -1,6 +1,6 @@
 import React from 'react';
-
 import moment from 'moment';
+
 export default class Note extends React.Component {
   constructor(props) {
     super(props);

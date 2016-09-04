@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router';
+
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -29,9 +31,9 @@ export default class Header extends React.Component {
       </div>
       <div className="collapse navbar-collapse navbar-ex1-collapse">
         <ul className="nav navbar-nav">
-          <li className="active"><a href="#">Notes</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">About</a></li>
+          <li className="active"><Link to="/">Notes</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/aboutus">About</Link></li>
         </ul>
         <form className="navbar-form navbar-left" role="search">
           <div className="form-group">
