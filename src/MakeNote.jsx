@@ -57,7 +57,7 @@ class MakeNote extends React.Component {
       result = this.originalNotes;
     } else {
       result = _.filter(this.originalNotes, (item, idx) => {
-        return item.title.toLowerCase().indexOf(title) > -1;
+        return item.title.toLowerCase().indexOf(title.toLowerCase()) > -1;
       });
     }
 
