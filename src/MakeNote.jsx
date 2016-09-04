@@ -28,7 +28,7 @@ class MakeNote extends React.Component {
     });
   }
 
-  componentWillUnMount() {
+  componentWillUnmount() {
     this.fetchNoteRequest.abort();
   }
 
