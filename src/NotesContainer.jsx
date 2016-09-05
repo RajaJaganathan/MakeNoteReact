@@ -6,7 +6,7 @@ import Header from './Header.jsx';
 import Notes from './Notes.jsx';
 import AddNote from './AddNote.jsx';
 
-class NoteContainer extends React.Component {
+export default class NotesContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = this._getInitialState();
@@ -15,6 +15,7 @@ class NoteContainer extends React.Component {
     this.onFilterNote = this.onFilterNote.bind(this);
     this.onSortBy = this.onSortBy.bind(this);
     this.originalNotes = [];
+    this.fetchNoteRequest = null;
   }
 
   _getInitialState() {
@@ -31,7 +32,7 @@ class NoteContainer extends React.Component {
   }
 
   componentWillUnmount() {
-    this.fetchNoteRequest.abort();
+    
   }
 
   onDeleteNote(note) {
@@ -69,7 +70,6 @@ class NoteContainer extends React.Component {
   render() {
     return (
       <div className="notes-container">
-      assadsad
         <AddNote onAddNote={this.onAddNote}/>
         <Notes notes={this.state.notes} onDelete={this.onDeleteNote}/>
       </div>
