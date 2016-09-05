@@ -2,7 +2,6 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Header from './Header.jsx';
 import Notes from './Notes.jsx';
 import AddNote from './AddNote.jsx';
 

@@ -8,6 +8,7 @@ module.exports = {
     entry: './src/index.js',
     output: { path: __dirname, filename: 'bundle.js' },
     contentBase: 'src',
+    historyApiFallback: true,
     module: {
         loaders: [{
                 test: /.(jsx|js)?$/,
@@ -17,7 +18,6 @@ module.exports = {
                     presets: ['es2015', 'react']
                 }
             },
-            { test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel-loader'] },
             { test: /\.css$/, loader: "style-loader!css-loader" }, { test: /\.css$/, loader: "style-loader!css-loader" }, {
                 test: /\.png$/,
                 loader: "url-loader?limit=100000"

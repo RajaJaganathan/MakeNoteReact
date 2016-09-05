@@ -3,15 +3,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, browserHistory } from 'react-router';
 
-import Header from './Header.jsx';
-import Notes from './Notes.jsx';
-import AddNote from './AddNote.jsx';
+import Header from './layout/Header.jsx';
+import Notes from './components/Notes.jsx';
+import AddNote from './components/AddNote.jsx';
 
-import NotesContainer from './NotesContainer.jsx';
-import Contact from './Contact.jsx';
-import Aboutus from './Aboutus.jsx';
+import NotesContainer from './components/NotesContainer.jsx';
+import Contact from './components/Contact.jsx';
+import Aboutus from './components/Aboutus.jsx';
 
-// import routes from './routes'; 
+// import routes from './routes';
 
 class App extends React.Component {
   constructor(props) {
@@ -51,14 +51,12 @@ class App extends React.Component {
   }
 }
 
-
-
 ReactDOM.render((
-  <Router history={browserHistory}>
+  <Router history={browserHistory} >
     <Route path="/" component={App} >
       <IndexRoute component={NotesContainer}/>
-      <Route path="contact" component={Contact} />
-      <Route path="aboutus" component={Aboutus} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/aboutus" component={Aboutus} />
     </Route>
   </Router>
 ), document.getElementById('root'));
