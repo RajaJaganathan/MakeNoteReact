@@ -24,7 +24,7 @@ export default class NotesContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchNoteRequest = $.ajax('notes.json').then((res) => {
+    this.fetchNoteRequest = $.ajax('mockdata/notes.json').then((res) => {
       this.setState({ notes: res });
       this.originalNotes = _.clone(res);
     });
