@@ -19,6 +19,8 @@ class NotesContainer extends React.Component {
     this.onSortBy = this.onSortBy.bind(this);
     this.originalNotes = [];
     this.fetchNoteRequest = null;
+    debugger;
+    console.log(this.props);
   }
 
   _getInitialState() {
@@ -28,10 +30,12 @@ class NotesContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchNoteRequest = $.ajax('mockdata/notes.json').then((res) => {
-      this.setState({ notes: res });
-      this.originalNotes = _.clone(res);
-    });
+    // this.fetchNoteRequest = $.ajax('mockdata/notes.json').then((res) => {
+    //   this.setState({ notes: res });
+    //   this.originalNotes = _.clone(res);
+    // });
+
+    this.props.actions.loadNotes();
   }
 
   componentWillUnmount() {
@@ -82,6 +86,7 @@ class NotesContainer extends React.Component {
 
 
 function mapStatestoProps(state, ownProps) {
+  debugger;
   return {
     notes: state.notes
   };
