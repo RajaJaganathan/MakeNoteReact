@@ -2,6 +2,9 @@ import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Route, Router, IndexRoute, browserHistory } from 'react-router';
+import {Provider} from 'react-redux';
+
+import configureStore from './stores/configureStore';
 
 import Header from './layout/Header.jsx';
 import Notes from './components/Notes.jsx';
@@ -10,6 +13,8 @@ import AddNote from './components/AddNote.jsx';
 import NotesContainer from './components/NotesContainer.jsx';
 import Contact from './components/Contact.jsx';
 import Aboutus from './components/Aboutus.jsx';
+
+const store = configureStore();
 
 // import routes from './routes';
 
@@ -52,13 +57,15 @@ class App extends React.Component {
 }
 
 ReactDOM.render((
-  <Router history={browserHistory} >
-    <Route path="/" component={App} >
-      <IndexRoute component={NotesContainer}/>
-      <Route path="/contact" component={Contact} />
-      <Route path="/aboutus" component={Aboutus} />
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={browserHistory} >
+      <Route path="/" component={App} >
+        <IndexRoute component={NotesContainer}/>
+        <Route path="/contact" component={Contact} />
+        <Route path="/aboutus" component={Aboutus} />
+      </Route>
+    </Router>
+  </Provider>
 ), document.getElementById('root'));
 
 export default App;

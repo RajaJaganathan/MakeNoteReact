@@ -1,11 +1,15 @@
 import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
+import * as notesAction from '../actions/noteActions';
 
 import Notes from './Notes.jsx';
 import AddNote from './AddNote.jsx';
 
-export default class NotesContainer extends React.Component {
+class NotesContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = this._getInitialState();
@@ -31,7 +35,7 @@ export default class NotesContainer extends React.Component {
   }
 
   componentWillUnmount() {
-    
+
   }
 
   onDeleteNote(note) {
@@ -75,3 +79,18 @@ export default class NotesContainer extends React.Component {
     )
   }
 }
+
+
+function mapStatestoProps(state, ownProps) {
+  return {
+    notes: state.notes
+  };
+}
+
+function mapDispatchtoProps(dispatch) {  
+  return {
+    actions: bindActionCreators(notesAction, dispatch)
+  };
+}
+
+export default connect(mapStatestoProps, mapDispatchtoProps)(NotesContainer);
