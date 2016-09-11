@@ -36,7 +36,7 @@ export default class Header extends Component {
           <li><Link to="/aboutus" activeClassName="active">About</Link></li>
         </ul>
         <form className="navbar-form navbar-left" role="search">
-          <div className="form-group">
+          <div className="form-group filter-field">
             <input type="text" value={this.state.filterText} onChange={this.onFilterNote } className="form-control" placeholder="Search by title"/>
           </div>
           <button type="submit" className="btn btn-default">Submit</button>
