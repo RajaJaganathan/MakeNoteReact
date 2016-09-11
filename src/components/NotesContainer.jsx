@@ -12,30 +12,20 @@ import AddNote from './AddNote.jsx';
 class NotesContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this._getInitialState();
+    this.state = {};
     this.onAddNote = this.onAddNote.bind(this);
-    this.onDeleteNote = this.onDeleteNote.bind(this);
-    this.onFilterNote = this.onFilterNote.bind(this);
-    this.onSortBy = this.onSortBy.bind(this);
+    this.onDeleteNote = this.onDeleteNote.bind(this);   
     this.originalNotes = [];
     this.fetchNoteRequest = null;
-    debugger;
-    console.log(this.props);
+    
   }
 
   _getInitialState() {
-    return {
-      notes: []
-    };
+    return 
   }
 
   componentDidMount() {
-    // this.fetchNoteRequest = $.ajax('mockdata/notes.json').then((res) => {
-    //   this.setState({ notes: res });
-    //   this.originalNotes = _.clone(res);
-    // });
-
-    this.props.actions.loadNotes();
+      this.props.actions.loadNotes();
   }
 
   componentWillUnmount() {
@@ -43,19 +33,16 @@ class NotesContainer extends React.Component {
   }
 
   onDeleteNote(note) {
-    var notes = _.remove(this.state.notes, note);
-    this.setState({ notes: this.state.notes });
+    var notes = _.remove(this.state.notes, note);   
+    this.props.actions.deleteNote(note);    
   }
 
-  onAddNote(note) {
+  onAddNote(note) {    
     var newNote = Object.assign({}, note);
-    this.state.notes.push(newNote);
-    this.originalNotes = _.clone(this.state.notes);
-    this.setState({ notes: this.state.notes });
+    this.props.actions.addNote(newNote);    
   }
 
   onFilterNote(title) {
-
     var result;
 
     if (!title) {
@@ -69,30 +56,25 @@ class NotesContainer extends React.Component {
     this.setState({ notes: result });
   }
 
-  onSortBy(field) {
-    var result = _.orderBy(this.state.notes, field);
-    this.setState({ notes: result });
-  }
-
   render() {
+    console.log('render this.props.notes', this.props.notes);
     return (
       <div className="notes-container">
         <AddNote onAddNote={this.onAddNote}/>
-        <Notes notes={this.state.notes} onDelete={this.onDeleteNote}/>
+        <Notes notes={this.props.notes} onDelete={this.onDeleteNote}/>
       </div>
     )
   }
 }
 
 
-function mapStatestoProps(state, ownProps) {
-  debugger;
+function mapStatestoProps(state, ownProps) {  
   return {
     notes: state.notes
   };
 }
 
-function mapDispatchtoProps(dispatch) {  
+function mapDispatchtoProps(dispatch) {
   return {
     actions: bindActionCreators(notesAction, dispatch)
   };

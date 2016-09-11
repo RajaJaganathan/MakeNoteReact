@@ -11,7 +11,7 @@ export default class AddNote extends React.Component {
     };
   }
 
-  onAddNoteHandler() {
+  onAddNoteHandler() {    
     var newNote = Object.assign({ savedDate: new Date() }, this.state);
     this.props.onAddNote(newNote);
     this.setState({ title: '', desc: '' });
