@@ -1,2 +1,2 @@
 # MakeNoteReact
-MakeNote Application developed by using React JS
+MakeNote Application developed by using React and Redux
