@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as notesAction from '../actions/noteActions';
 
-import Header from '../layout/Header.jsx';
+import Header from '../layout/Header';
 
 class App extends Component {
   constructor(props) {

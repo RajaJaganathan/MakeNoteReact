@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import App from './components/App.jsx';
-import NotesContainer from './components/NotesContainer.jsx';
-import Contact from './components/Contact.jsx';
-import Aboutus from './components/Aboutus.jsx';
+import App from './components/App';
+import NotesContainer from './components/NotesContainer';
+import Contact from './components/Contact';
+import Aboutus from './components/Aboutus';
 
 export default (<Route path="/" component={App} >
   <IndexRoute component={NotesContainer}/>

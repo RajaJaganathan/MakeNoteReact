@@ -6,8 +6,8 @@ import {connect} from 'react-redux';
 
 import * as notesAction from '../actions/noteActions';
 
-import Notes from './Notes.jsx';
-import AddNote from './AddNote.jsx';
+import Notes from './Notes';
+import AddNote from './AddNote';
 
 class NotesContainer extends React.Component {
   constructor(props) {

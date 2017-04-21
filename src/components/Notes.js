@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 
-import Note from './Note.jsx';
+import Note from './Note';
 
 export default class Notes extends React.Component {
   constructor(props) {

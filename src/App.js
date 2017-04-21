@@ -6,15 +6,15 @@ import {Provider} from 'react-redux';
 
 import configureStore from './stores/configureStore';
 
-import routes from './routes.jsx';
+import routes from './routes';
 
-import Notes from './components/Notes.jsx';
-import AddNote from './components/AddNote.jsx';
+import Notes from './components/Notes';
+import AddNote from './components/AddNote';
 
-import NotesContainer from './components/NotesContainer.jsx';
-import Contact from './components/Contact.jsx';
-import Aboutus from './components/Aboutus.jsx';
-import Header from './layout/Header.jsx';
+import NotesContainer from './components/NotesContainer';
+import Contact from './components/Contact';
+import Aboutus from './components/Aboutus';
+import Header from './layout/Header';
 
 const store = configureStore();
 

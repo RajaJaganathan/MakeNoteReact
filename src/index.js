@@ -4,4 +4,4 @@ import '!style!css!bootstrap/dist/css/bootstrap.css';
 window.jQuery = $;
 require('bootstrap');
 
-import App from './App.jsx';
+import App from './App';

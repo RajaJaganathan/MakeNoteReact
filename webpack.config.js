@@ -6,7 +6,10 @@ module.exports = {
     devtool: 'source-map',
     noInfo: false,
     entry: './src/index.js',
-    output: { path: __dirname, filename: 'bundle.js' },
+    output: {
+        path: path.resolve(__dirname, 'build'),
+        filename: 'bundle.js'
+    },
     contentBase: 'src',
     historyApiFallback: true,
     module: {
@@ -18,7 +21,13 @@ module.exports = {
                     presets: ['es2015', 'react']
                 }
             },
-            { test: /\.css$/, loader: "style-loader!css-loader" }, { test: /\.css$/, loader: "style-loader!css-loader" }, {
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            }, {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            }, {
                 test: /\.png$/,
                 loader: "url-loader?limit=100000"
             }, {
