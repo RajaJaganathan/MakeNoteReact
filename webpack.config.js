@@ -10,7 +10,11 @@ module.exports = {
         path: path.resolve(__dirname, 'build'),
         filename: 'bundle.js'
     },
-    contentBase: 'src',
+    devServer: {
+        publicPath: "/",
+        contentBase: "./src",
+        hot: false
+    },
     historyApiFallback: true,
     module: {
         loaders: [{
