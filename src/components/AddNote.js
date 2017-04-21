@@ -18,9 +18,7 @@ export default class AddNote extends React.Component {
   }
 
   onInputChangeHandler(e, type) {
-    var obj = {};
-    obj[type] = e.target.value;
-    this.setState(obj);
+    this.setState({[type]:e.target.value});
   }
 
   render() {
