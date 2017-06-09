@@ -27,13 +27,16 @@ export default class Header extends Component {
           <span className="icon-bar"></span>
           <span className="icon-bar"></span>
         </button>
-        <a className="navbar-brand" href="#">Make Note</a>
+
+        <a className="navbar-brand" href="#">
+          <IndexLink to="/" activeClassName="active">Make Note</IndexLink>
+        </a>
       </div>
       <div className="collapse navbar-collapse navbar-ex1-collapse">
         <ul className="nav navbar-nav">
-          <li><IndexLink to="/" activeClassName="active">Notes</IndexLink></li>
-          <li><Link to="/contact" activeClassName="active">Contact</Link></li>
-          <li><Link to="/aboutus" activeClassName="active">About</Link></li>
+          <li className={location.pathname === ('/') && 'active'}><IndexLink to="/" activeClassName="active">Notes</IndexLink></li>
+          <li className={location.pathname.startsWith('/contact') && 'active'}><Link to="/contact" activeClassName="active">Contact</Link></li>
+          <li className={location.pathname.startsWith('/aboutus') && 'active'}><Link to="/aboutus" activeClassName="active">About</Link></li>
         </ul>
         <form className="navbar-form navbar-left" role="search">
           <div className="form-group filter-field">
