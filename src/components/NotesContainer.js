@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {bindActionCreators} from 'redux';
@@ -14,14 +13,14 @@ class NotesContainer extends React.Component {
     super(props);
     this.state = {};
     this.onAddNote = this.onAddNote.bind(this);
-    this.onDeleteNote = this.onDeleteNote.bind(this);   
+    this.onDeleteNote = this.onDeleteNote.bind(this);
     this.originalNotes = [];
     this.fetchNoteRequest = null;
-    
+
   }
 
   _getInitialState() {
-    return 
+    return
   }
 
   componentDidMount() {
@@ -33,13 +32,13 @@ class NotesContainer extends React.Component {
   }
 
   onDeleteNote(note) {
-    var notes = _.remove(this.state.notes, note);   
-    this.props.actions.deleteNote(note);    
+    var notes = _.remove(this.state.notes, note);
+    this.props.actions.deleteNote(note);
   }
 
-  onAddNote(note) {    
+  onAddNote(note) {
     var newNote = Object.assign({}, note);
-    this.props.actions.addNote(newNote);    
+    this.props.actions.addNote(newNote);
   }
 
   onFilterNote(title) {
@@ -68,7 +67,7 @@ class NotesContainer extends React.Component {
 }
 
 
-function mapStatestoProps(state, ownProps) {  
+function mapStatestoProps(state, ownProps) {
   return {
     notes: state.notes
   };
