@@ -16,7 +16,7 @@ export const filterNotesByTitle = (title) => ({ type: FILTER_NOTES_BY_TITLE, tit
 export function loadNotes() {
     return function(dispatch) {
         return axios.get('mockdata/notes.json').then(function(res) {
-            dispatch(loadNotesSuccess(res));
+            dispatch(loadNotesSuccess(res.data));
         });
     }
 }

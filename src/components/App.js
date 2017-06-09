@@ -46,8 +46,8 @@ class App extends Component {
 }
 
 function filterNotes(notes) {
-  return _.filter(notes, (item, idx) => {
-    return item.title.toLowerCase().indexOf('todo') > -1;
+  return _.filter(notes, ({title}, idx) => {
+    return title && title.toLowerCase().indexOf('todo') > -1;
   });
 }
 
