@@ -15,12 +15,6 @@ class NotesContainer extends React.Component {
     this.onAddNote = this.onAddNote.bind(this);
     this.onDeleteNote = this.onDeleteNote.bind(this);
     this.originalNotes = [];
-    this.fetchNoteRequest = null;
-
-  }
-
-  _getInitialState() {
-    return
   }
 
   componentDidMount() {
