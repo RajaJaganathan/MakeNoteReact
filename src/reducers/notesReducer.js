@@ -2,11 +2,14 @@ import * as notesAction from '../actions/noteActions';
 import initialState from './initialState';
 import _ from 'lodash';
 
+var originalNotes;
+
 export default function notesReducer(state, action) {
     switch (action.type) {
         case notesAction.LOAD_NOTES:
             state.notes = action.notes;
-            return state.notes
+            originalNotes = action.notes.slice();
+            return state.notes;
         case notesAction.ORDER_BY_TITLE:
             state = _.orderBy(state, 'title', action.dir);
             return state;
@@ -17,7 +20,7 @@ export default function notesReducer(state, action) {
             _.remove(state, action.note);
             return state;
         case notesAction.FILTER_NOTES_BY_TITLE:
-            return _.filter(state, (item, idx) => {
+            return _.filter(originalNotes, (item, idx) => {
                 return item.title.toLowerCase().indexOf(action.title.toLowerCase()) > -1;
             });
         default:

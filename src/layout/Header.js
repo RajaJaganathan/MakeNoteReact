@@ -4,7 +4,7 @@ import { Link, IndexLink } from "react-router";
 export default class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = { filterText: "" };
+    this.state = { filterText: '' };
     this.onFilterNote = this.onFilterNote.bind(this);
   }
 

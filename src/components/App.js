@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import * as notesAction from '../actions/noteActions';
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as notesAction from "../actions/noteActions";
 
-import Header from '../layout/Header';
+import Header from "../layout/Header";
 
 class App extends Component {
   constructor(props) {
@@ -27,9 +27,9 @@ class App extends Component {
 
   onSortBy(field) {
     if (this.sortParams.field === field) {
-      this.sortParams.dir = this.sortParams.dir === 'asc' ? 'desc' : 'asc';
+      this.sortParams.dir = this.sortParams.dir === "asc" ? "desc" : "asc";
     } else {
-      this.sortParams.dir = 'asc';
+      this.sortParams.dir = "asc";
     }
     this.sortParams.field = field;
     this.props.actions.orderByTitle(this.sortParams.dir);
@@ -37,17 +37,18 @@ class App extends Component {
   render() {
     return (
       <div className="page-wrapper">
-        <Header onFilterNote={this.onFilterNote} onSortBy={this.onSortBy}/>
+        <Header onFilterNote={this.onFilterNote} onSortBy={this.onSortBy} />
         <div className="container">
           {this.props.children}
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 
 function filterNotes(notes) {
-  return _.filter(notes, ({title}, idx) => {
-    return title && title.toLowerCase().indexOf('todo') > -1;
+  return _.filter(notes, ({ title }, idx) => {
+    return title && title.toLowerCase().indexOf("todo") > -1;
   });
 }
 

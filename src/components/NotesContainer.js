@@ -27,10 +27,6 @@ class NotesContainer extends React.Component {
       this.props.actions.loadNotes();
   }
 
-  componentWillUnmount() {
-
-  }
-
   onDeleteNote(note) {
     var notes = _.remove(this.state.notes, note);
     this.props.actions.deleteNote(note);

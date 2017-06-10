@@ -6,9 +6,6 @@ export default class Note extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-  }
-
   render() {
     return (
       <div className="note__item">
