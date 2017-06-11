@@ -1,23 +1,17 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import _ from 'lodash';
 import Note from './Note';
-export default class Notes extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
 
-    render() {
-        var notes = _.map(this.props.notes, (item, idx) => {
-            return <Note key={idx} item={item} onDelete={this.props.onDelete}/>;
-        });
+export default function Notes(props) {
+    var notes = _.map(props.notes, (item, idx) => {
+        return <Note key={idx} item={item} onDelete={props.onDelete} />;
+    });
 
-        return (
-      <div className="note row">
-        {notes}
-      </div>
-        );
-    }
+    return (
+    <div className="note row">
+      {notes}
+    </div>
+    );
 }
 
 Notes.propTypes = {
