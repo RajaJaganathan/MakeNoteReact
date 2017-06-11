@@ -18,5 +18,5 @@ export function loadNotes() {
         return axios.get('mockdata/notes.json').then(function(res) {
             dispatch(loadNotesSuccess(res.data));
         });
-    }
+    };
 }

@@ -1,28 +1,28 @@
 import React from 'react';
 
 export default class AddNote extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
-    this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
-    this.state = {
-      title: '',
-      desc: ''
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.onAddNoteHandler = this.onAddNoteHandler.bind(this);
+        this.onInputChangeHandler = this.onInputChangeHandler.bind(this);
+        this.state = {
+            title: '',
+            desc: ''
+        };
+    }
 
-  onAddNoteHandler() {    
-    var newNote = Object.assign({ savedDate: new Date() }, this.state);
-    this.props.onAddNote(newNote);
-    this.setState({ title: '', desc: '' });
-  }
+    onAddNoteHandler() {
+        var newNote = Object.assign({ savedDate: new Date() }, this.state);
+        this.props.onAddNote(newNote);
+        this.setState({ title: '', desc: '' });
+    }
 
-  onInputChangeHandler(e, type) {
-    this.setState({[type]:e.target.value});
-  }
+    onInputChangeHandler(e, type) {
+        this.setState({[type]:e.target.value});
+    }
 
-  render() {
-    return (
+    render() {
+        return (
       <div className="form-group addnote row">
         <div className="addnote__field">
           <div className="col-xs-3">
@@ -36,6 +36,6 @@ export default class AddNote extends React.Component {
           <button onClick={this.onAddNoteHandler} className="btn btn-primary">Add Note</button>
         </div>
       </div>
-    );
-  }
+        );
+    }
 }

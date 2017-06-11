@@ -11,13 +11,21 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        publicPath: "/",
-        contentBase: "./src",
+        publicPath: '/',
+        contentBase: './src',
         hot: false
     },
     historyApiFallback: true,
     module: {
-        loaders: [{
+        preLoaders: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader'
+            }
+        ],
+        loaders: [
+            {
                 test: /.(jsx|js)?$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
@@ -27,26 +35,33 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
-            }, {
+                loader: 'style-loader!css-loader'
+            },
+            {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
-            }, {
+                loader: 'style-loader!css-loader'
+            },
+            {
                 test: /\.png$/,
-                loader: "url-loader?limit=100000"
-            }, {
+                loader: 'url-loader?limit=100000'
+            },
+            {
                 test: /\.jpg$/,
-                loader: "file-loader"
-            }, {
+                loader: 'file-loader'
+            },
+            {
                 test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url?limit=10000&mimetype=application/font-woff'
-            }, {
+            },
+            {
                 test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url?limit=10000&mimetype=application/octet-stream'
-            }, {
+            },
+            {
                 test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'file'
-            }, {
+            },
+            {
                 test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
                 loader: 'url?limit=10000&mimetype=image/svg+xml'
             }

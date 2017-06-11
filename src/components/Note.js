@@ -2,12 +2,12 @@ import React from 'react';
 import moment from 'moment';
 
 export default class Note extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+    }
 
-  render() {
-    return (
+    render() {
+        return (
       <div className="note__item">
         <div className="notes__delete-icon">
           <span onClick={() => this.props.onDelete(this.props.item) } className="glyphicon glyphicon-remove"></span>
@@ -19,6 +19,6 @@ export default class Note extends React.Component {
           <div className="note__desc">{this.props.item.desc}</div>
         </div>
       </div>
-    );
-  }
+        );
+    }
 }
