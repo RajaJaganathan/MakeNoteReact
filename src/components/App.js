@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import React, { Component } from 'react';
+import React, { Component, PropTypes} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as notesAction from '../actions/noteActions';
@@ -46,6 +46,12 @@ class App extends Component {
         );
     }
 }
+
+App.propTypes = {
+    children: PropTypes.node,
+    actions: PropTypes.func,
+    onClickOut: PropTypes.func
+};
 
 function filterNotes(notes) {
     return _.filter(notes, ({ title }) => {

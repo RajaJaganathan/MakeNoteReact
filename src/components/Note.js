@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component, PropTypes} from 'react';
 import moment from 'moment';
 
-export default class Note extends React.Component {
+export default class Note extends Component {
     constructor(props) {
         super(props);
     }
@@ -22,3 +22,8 @@ export default class Note extends React.Component {
         );
     }
 }
+
+Note.propTypes = {
+    onDelete: PropTypes.func,
+    item: PropTypes.object,
+};

@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, { PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -56,6 +55,15 @@ class NotesContainer extends React.Component {
         );
     }
 }
+
+NotesContainer.propTypes = {
+    notes: PropTypes.arrayOf,
+    actions: PropTypes.shape({
+        loadNotes:PropTypes.func,
+        addNote:PropTypes.func,
+        deleteNote:PropTypes.func
+    })
+};
 
 function mapStatestoProps(state) {
     return {

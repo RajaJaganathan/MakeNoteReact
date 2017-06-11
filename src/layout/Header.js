@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
 
 export default class Header extends Component {
@@ -98,3 +98,8 @@ export default class Header extends Component {
         );
     }
 }
+
+Header.propTypes = {
+    onFilterNote: PropTypes.func,
+    onSortBy: PropTypes.func
+};

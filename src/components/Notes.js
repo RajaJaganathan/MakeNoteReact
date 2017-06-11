@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import _ from 'lodash';
 import Note from './Note';
 export default class Notes extends React.Component {
@@ -19,3 +19,8 @@ export default class Notes extends React.Component {
         );
     }
 }
+
+Notes.propTypes = {
+    notes: PropTypes.array,
+    onDelete: PropTypes.func
+};

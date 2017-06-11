@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class AddNote extends React.Component {
     constructor(props) {
@@ -39,3 +39,7 @@ export default class AddNote extends React.Component {
         );
     }
 }
+
+AddNote.propTypes = {
+    onAddNote: PropTypes.func
+};
